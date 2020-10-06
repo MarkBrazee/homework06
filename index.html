@@ -1,7 +1,7 @@
 <!-- Psuedo code -->
 
-<!-- Create a weather dashboard
-    create form inputs to search for cities
+<!-- Create a weather dashboard (HTML and CSS)
+    create form inputs to search for cities (js)
     city search
     city selected
         present conditions- in icon form
@@ -23,18 +23,60 @@
         last searched city forecast -->
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+
+    <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="container">
+
+        <section id="searchCity">
+
+            <h3>Search for a City:</h3>
+
+            <div><textarea id="text" cols="20" rows="1"></textarea>
+            </div>
+
+            <!-- searched cities -->
+
+        </section>
+
+            
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script scr="./assets/script.js" type="text/javascript"></script>
+
 </body>
 </html>
