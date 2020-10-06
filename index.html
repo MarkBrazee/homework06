@@ -3,8 +3,12 @@
 <!-- Create a weather dashboard (HTML and CSS)
     create form inputs to search for cities (js)
     city search
+        textarea input
+        create button
     city selected
+        button directs to ajax call
         present conditions- in icon form
+            create variables for the follwing:
             temperature
             humidity
             wind spped
@@ -39,16 +43,19 @@
 </head>
 
 <body>
+    <!-- Title at the top of the page -->
     <header>
         <h1>Weather Dashboard</h1>
     </header>
 
     <div class="container">
 
+        <!-- Section to search for a city -->
         <section id="searchCity">
 
             <h3>Search for a City:</h3>
 
+            <!-- Text area to search for a city -->
             <div><textarea id="text" cols="20" rows="1"></textarea>
             </div>
 
