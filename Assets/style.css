@@ -30,6 +30,6 @@ h3 {
     margin 0 auto;
 }
 
-#searchCity {
+#searchCity, #selectedCity {
     float: left;
 }

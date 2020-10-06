@@ -6,6 +6,10 @@ var APIKey = "87256196de89d20e22c222771dbc9601";
 // Here we are building the URL we need to query the database
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Bujumbura,Burundi&appid=" + APIKey;
 
+// URL to query the database for the UV data
+var queryURLuv = "http://api.openweathermap.org/data/2.5/uvi?lat={lat}&lon={lon}&appid=" + APIKey;
+
+
 // Create an AJAX call
 $.ajax({
     url: queryURL,
@@ -18,4 +22,9 @@ $.ajax({
     var humDiv = $(".humidity").text(respsone.main.humidity);
     var uvIndexDiv = $(".uvIndex").text( )
 
-}
+    var kelvTemp = parseInt(response.main.temp)
+    var farTemp = (kelvTemp - 273.5) * 1.80 + 32;
+    var tempDiv = (".temp").text(farTemp)
+
+
+});
