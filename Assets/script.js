@@ -62,10 +62,13 @@ $("#city-btn").on("click", function(event) {
         var tempDiv = (".temp").text(farTemp)
     });    
 
+    // Search for the UV Index
     $.ajax({
         url: createUVQueryUrl(city),
         method: "GET"
         }).then(function(response) {
             console.log(resposne)
+
+        $(".uvIndex").text(respnse.name);
     });
 });
