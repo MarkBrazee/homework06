@@ -11,7 +11,7 @@
             create variables for the follwing:
             temperature
             humidity
-            wind spped
+            wind speed
             UV Index
                 present a color of Index
                     favorable
@@ -53,6 +53,8 @@
         <!-- Section to search for a city -->
         <section id="searchCity">
 
+            <div class="col-md-4"></div>
+
             <h3>Search for a City:</h3>
 
             <!-- User to type in city here -->
@@ -62,7 +64,7 @@
                 <input type="text" id="city-input"><br>
 
                 <!-- Button triggers city to searched  -->
-                <input id="city" type="submit"
+                <input id="city-btn" type="submit"
                 value="Submit">
 
             </form>
@@ -73,6 +75,10 @@
 
 
         <section id="selectedCity">
+
+            <div class="col-md-8"></div>
+
+            <h2>Selected City:</h2>
 
             <!-- JSON contents in here -->
             <div class="city"></div>
@@ -122,7 +128,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script scr="./assets/script.js" type="text/javascript"></script>
+    <script src="./assets/script.js" type="text/javascript"></script>
 
 </body>
 </html>

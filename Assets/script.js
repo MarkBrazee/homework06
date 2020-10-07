@@ -1,19 +1,36 @@
-<src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
 // OpenWeather API key  ""
 var APIKey = "87256196de89d20e22c222771dbc9601";
 
+// create variable for local storage
+var searchedCities = JSON.parse(localStorage.getItem("searchedCities")) || []
+
 // OpenWeather URL to query the database
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Bujumbura,Burundi&appid=" + APIKey;
+function createQueryUrl(cityQuery) {
+    return `https://api.openweathermap.org/data/2.5/weather?q=${cityQuery}&appid=${APIKey}`
+};
 
 // OpenWeather URL to query the database for the UV data
-var queryURLuv = "http://api.openweathermap.org/data/2.5/uvi?lat={lat}&lon={lon}&appid=" + APIKey;
+function createUVQueryUrl(lat,lon) {
+    return `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${APIKey}`
+};
 
 
+//Local Storage
+
+function addCity(cityToAdd) {
+    searchedCities.push(cityToAdd)
+
+    localStorage.setItem("searchedCities", JSON.stringify(searchedCities))
+
+    // To do: show list of city buttons on the screen
+
+    // To do: add a click event listener to the buttons so that they search for that city's weather when clicked.
+
+}
 
 // Create an AJAX call
 
-$("#city-input").on("click", function(event) {
+$("#city-btn").on("click", function(event) {
 
     // event.preventDefault() can be used to prevent an event's default behavior.
     // Here, it prevents the submit button from trying to submit a form when clicked
@@ -22,20 +39,22 @@ $("#city-input").on("click", function(event) {
     // text from the input box
     var city = $("#city-input").val();
 
-    // Create an AJAX call
+    // Create an AJAX call for the city, temperature, wind and humidity.
 
     $.ajax({
-    url: queryURL,
+    url: createQueryURL(city),
     method: "GET"
-}).then(function(response) {
-        $("#city-input").text(JSON.stringify(response));
+    }).then(function(response) {
+        
+        // Add the searched city to the search history
+        addCity(city)
+        
+        // city, wind, humidity, UV Index and temperature
 
-    // create variables for city, wind, humidity, UV Index and temperature
-
-        var cityDiv = $(".city").text("");
-        var windDiv = $(".wind").text(response.wind.speed);
-        var humDiv = $(".humidity").text(respsone.main.humidity);
-        var uvIndexDiv = $(".uvIndex").text( )
+        $(".city").text(respnse.name);
+        $(".wind").text(response.wind.speed);
+        $(".humidity").text(respsone.main.humidity);
+       
 
         // convert Kelvin to Farenheit temperature 
         var kelvTemp = parseInt(response.main.temp)
@@ -43,4 +62,10 @@ $("#city-input").on("click", function(event) {
         var tempDiv = (".temp").text(farTemp)
     });    
 
+    $.ajax({
+        url: createUVQueryUrl(city),
+        method: "GET"
+        }).then(function(response) {
+            console.log(resposne)
+    });
 });

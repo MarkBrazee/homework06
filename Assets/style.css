@@ -5,7 +5,7 @@ body {
     font-size: 18px;
     line-height: 150%;
     color: black;
-    background: white;
+    background: rgb(150, 232, 247);
 }
 
 header {
@@ -21,6 +21,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 24px;
+}
+
 h3 {
     font-size: 18px;
 }
@@ -30,8 +34,12 @@ h3 {
     margin 0 auto;
 }
 
-#searchCity, #selectedCity {
+#searchCity {
     float: left;
+}
+
+#selectedCity {
+    text-align: center;
 }
 
 
